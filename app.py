@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return 'Dyslexic Mechanics AI is running!'
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
