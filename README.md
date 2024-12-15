@@ -1,0 +1,1 @@
+# Dyslexic Mechanics AI\nFlask-based AI-powered manual search application.\n\n## Deployment\n1. Set up environment variables in Render or .env.\n2. Deploy using Render with the given `Procfile`.\n\n## Environment Variables\n- `PORT`: Port to bind Flask application.\n- `OPENAI_API_KEY`: Key for OpenAI API.
