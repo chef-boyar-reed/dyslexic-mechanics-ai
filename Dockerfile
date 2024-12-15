@@ -1,11 +1,14 @@
-# Use an official nginx image to serve the static site
-FROM nginx:alpine
+# Dockerfile for serving frontend and backend
+FROM python:3.9-slim
 
-# Copy the static files into the nginx html directory
-COPY . /usr/share/nginx/html
+# Install dependencies
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the default nginx port
-EXPOSE 80
+# Copy project files
+COPY . .
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Expose port and run the app
+EXPOSE 5000
+CMD ["python", "app.py"]
