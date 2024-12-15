@@ -1,6 +1,6 @@
-flask
-langchain
-openai
-langchain-community
-pypdf
-langchain-openai
+flask==3.1.0
+langchain==0.3.12
+langchain-community==0.3.11
+langchain-openai==0.2.12
+pypdf==5.1.0
+gunicorn==20.1.0
