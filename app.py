@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from langchain.document_loaders import PyPDFLoader
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_openai.embeddings import OpenAIEmbeddings
 import os
 import json
 
@@ -21,7 +21,7 @@ def create_embeddings():
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
 
     embedding_data = [
-        {"content": doc.page_content, "embedding": embeddings.embed_text(doc.page_content)}
+        {"content": doc.page_content, "embedding": embeddings.embed_query(doc.page_content)}
         for doc in documents
     ]
 
@@ -46,7 +46,7 @@ def query_pdf():
 
         # Embed the query
         embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
-        query_embedding = embeddings.embed_text(query)
+        query_embedding = embeddings.embed_query(query)
 
         # Compute similarities
         results = sorted(
