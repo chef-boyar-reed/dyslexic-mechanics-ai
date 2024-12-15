@@ -2,3 +2,4 @@ flask
 langchain
 openai
 langchain-community
+pypdf
